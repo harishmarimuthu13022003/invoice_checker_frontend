@@ -46,7 +46,7 @@ const App: React.FC = () => {
   ];
 
   const menuItems = [
-    { id: 'dashboard', icon: <LayoutDashboard size={20} />, label: 'Dashboard', roles: ['Administrator', 'Supplier', 'Finance Officer', 'Technical Monitor'] },
+    { id: 'dashboard', icon: <LayoutDashboard size={20} />, label: 'Dashboard', roles: ['Administrator', 'Supplier', 'Finance Officer'] },
     { id: 'upload', icon: <Upload size={20} />, label: 'Upload Invoice', roles: ['Administrator', 'Supplier'] },
     { id: 'invoices', icon: <FileText size={20} />, label: 'My Invoices', roles: ['Administrator', 'Supplier', 'Finance Officer'] },
     { id: 'requests', icon: <Plus size={20} />, label: 'Category Requests', roles: ['Administrator', 'Finance Officer'] },
@@ -89,7 +89,7 @@ const App: React.FC = () => {
     if (loggedIn) {
       fetchData();
       if (!filteredMenu.find(i => i.id === activeTab)) {
-        setActiveTab('dashboard');
+        setActiveTab(filteredMenu.length > 0 ? filteredMenu[0].id : 'dashboard');
       }
     }
   }, [role, loggedIn]);
