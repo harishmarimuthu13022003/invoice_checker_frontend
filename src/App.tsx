@@ -110,6 +110,7 @@ const App: React.FC = () => {
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center', 
+        width: '100%',
         height: '100vh',
         background: 'radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent), radial-gradient(circle at bottom left, rgba(236, 72, 153, 0.15), transparent)'
       }}>
@@ -141,7 +142,7 @@ const App: React.FC = () => {
           <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '8px', background: 'linear-gradient(to right, #fff, #94a3b8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>InvoMap AI</h1>
           <p style={{ color: 'var(--text-muted)', marginBottom: '32px' }}>Select your portal access to continue</p>
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div className="grid-2">
             {roles.map((r) => (
               <button 
                 key={r.name}
@@ -452,7 +453,7 @@ const AdminInvoiceView = ({ invoices }: any) => {
         </div>
       </div>
 
-      <div style={{ overflowX: 'auto' }}>
+      <div className="table-responsive">
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
@@ -540,6 +541,7 @@ const FinanceReviewView = ({ invoices, onAction }: any) => {
               </div>
             </div>
 
+            <div className="table-responsive mt-4">
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
                 <tr style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
@@ -562,6 +564,7 @@ const FinanceReviewView = ({ invoices, onAction }: any) => {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         ) : (
           <div className="card glass flex items-center justify-center" style={{ height: '300px' }}>
@@ -593,7 +596,7 @@ const TechnicalMonitorView = () => {
 
       <div className="card glass">
         <h3>System AI Performance Logs</h3>
-        <div style={{ overflowX: 'auto', marginTop: '20px' }}>
+        <div className="table-responsive" style={{ marginTop: '20px' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ color: 'var(--text-muted)', fontSize: '0.8rem', borderBottom: '1px solid var(--glass-border)' }}>
@@ -715,7 +718,7 @@ const InvoicesView = ({ invoices }: any) => (
       <h3>Invoice Status Dashboard</h3>
       <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Real-time updates from Finance & Admin</span>
     </div>
-    <div style={{ overflowX: 'auto' }}>
+    <div className="glass table-responsive">
       <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
         <thead>
           <tr style={{ borderBottom: '1px solid var(--glass-border)', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
